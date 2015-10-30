@@ -1,0 +1,82 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 22/10/2015, 10:00:56 PM
+    Author     : jordan
+*/
+
+#scope{
+    margin-top: 15rem;
+}
+.form-control{
+    width: 80%;
+}
+#out{
+    border-color: #003399;
+    border: 3px;
+    height: 10rem;
+}
+/*.col-sm-4{
+    height: 20rem;
+    width: 40%;
+    margin: 0px;
+    margin-right: 4px;
+}*/
+div#content.row{
+    height: 85rem;
+}
+div#mailcontent.col-md-8{
+    border: 0px;
+   // padding-left: 7px;
+   // border-left: 8px solid lightslategray;
+   float: right;
+    
+    
+}
+a{
+    text-decoration: none;
+    color: lightslategray;
+    text-align: center;
+}
+div.col-md-4.mailout{
+    padding-top: 0px;
+    border-right: 2px solid darkseagreen;
+    width: 100%;
+    float: left;
+}
+#lblinfo{
+    padding-left: 15px;
+}
+input#destinatarios.form-control{
+    width: 100%;
+    margin-bottom: 7px;
+}
+input#asunto.form-control{
+    width: 100%;
+    margin-bottom: 7px;
+}
+label.col-sm-2.control-label{
+    margin-top: 6px;
+}
+textArea#info.form-control{
+    width: 98%;
+}
+div.row.mails{
+    width: 33.3%;
+    //display: none;
+}
+div.col-md-4.cmail{
+    float: left;
+}
+li#tab2{
+    margin-right: 52%;
+}
+a.linkmailout :hover{
+    background: darkgrey;
+}
+div.contentleft h3{
+    margin-bottom: 18px;
+}
