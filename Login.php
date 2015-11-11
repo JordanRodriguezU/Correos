@@ -17,7 +17,7 @@ and open the template in the editor.
 
                 <label for="user" class="col-sm-2 control-label">User</label> <div class="col-sm-10">
 
-                    <input type="text" class="form-control" id="user" placeholder="Enter User Name">
+                    <input required type="text" class="form-control" id="user" placeholder="Enter User Name">
 
                 </div>
 
@@ -27,7 +27,7 @@ and open the template in the editor.
 
                 <label for="password" class="col-sm-2 control-label">Password</label> <div class="col-sm-10">
 
-                    <input type="password" class="form-control" id="password" placeholder="Enter The Password">
+                    <input required type="password" class="form-control" id="password" placeholder="Enter The Password">
 
                 </div>
 

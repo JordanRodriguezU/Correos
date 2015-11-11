@@ -7,27 +7,42 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Dash</title>
-        <link type="text/css" rel="stylesheet" href="Bootstrap/css/bootstrap.css">
-        <link type="text/css" rel="stylesheet" href="MyStyle/Mystyle.css">
-        <script type="text/javascript" src="Jquery/jquery-2.1.4.min.js"></script>
-        <script type="text/javascript" src="MyJs/MyJavascript.js"></script>
+        <title>Home</title>
+        <link type="text/css" rel="stylesheet" href="<?php echo base_url('Bootstrap/css/bootstrap.css') ?>">
+        <link type="text/css" rel="stylesheet" href="<?php echo base_url('MyStyle/Mystyle.css') ?>">
+        <script type="text/javascript" src="<?php echo base_url('Jquery/jquery-2.1.4.min.js') ?>"></script>
+        <script type="text/javascript" src="<?php echo base_url('MyJs/MyJavascript.js') ?>"></script>
 
-        <script src="Bootstrap/js/bootstrap.js"></script>
+        <script src="<?php echo base_url('Bootstrap/js/bootstrap.js') ?>"></script>
 
     </head>
     <body>
-        <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-inverse c">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">Correos.com</a>
                 </div>
                 <div>
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="Dash.php">Salida</a></li>
-                        <li><a href="ContentTab1.php">Enviados</a></li>
+                        <li><a href="<?php echo base_url('Salida'); ?>">Salida</a></li>
+                        <li class="active"><a href="<?php echo base_url('Enviados'); ?>">Enviados</a></li>
                     </ul>
                 </div>
+                <li class="dropdown">
+
+                    <a	href="#" class="dropdown-toggle" data-toggle="dropdown"> <?php echo $username ?> <b class="caret"></b>
+
+                    </a>
+
+                    <ul class="dropdown-menu">
+
+                        <li><a href="<?php echo base_url('NewMail');?>">Crear Nuevo Correo</a></li>
+
+                        <li class="divider"></li>
+
+                        <li><a href="#">Salir</a></li> </ul>
+
+                </li>
             </div>
         </nav>
 
@@ -130,76 +145,53 @@ and open the template in the editor.
             <div class='container'>
                 <div class='col-md-4 cmail'>
 
-                    <a class='linkmailout' href='#'> <div  class='col-md-4 mailout'>
+                    <?php foreach ($result->result() as $row) {
+                        
+                     ?>
+                    <a class='linkmailout'> <div onclick="Events.ClickCorreoEnviados(this);" data-asunto="<?php echo $row->asunto; ?>" data-contenido="<?php echo $row->contenido ?>" data-destinatario="<?php echo $row->destinatario ?>" data-id="<?php echo $row->id; ?>" class='col-md-4 mailout'>
 
 
 
-                            <h3><span>Hola</span></h3>
-                            <h4><span>Retraso examen</span></h4>
-
-                        </div>
-                    </a>
-                    <a class='linkmailout' href='#'> <div  class='col-md-4 mailout'>
-
-
-
-                            <h3><span>Hola</span></h3>
-                            <h4><span>Calificaciones</span></h4>
+                            <h3 class="infocorreo"><span><?php echo $correo ?></span></h3>
+                            <h4 class="infocorreo"><span><?php echo $row->asunto; ?></span></h4>
 
                         </div>
                     </a>
-                    <a class='linkmailout' href='#'> <div  class='col-md-4 mailout'>
-
-
-
-                            <h3><span>Hola</span></h3>
-                            <h4><span>Revision de tarea</span></h4>
-
-                        </div>
-                    </a>
-
-
-
-
-                    <a class='linkmailout' href='#'> <div  class='col-md-4 mailout'>
-
-
-
-                            <h3><span>Hola</span></h3>
-                            <h4><span>envio de examenes</span></h4>
-
-
-                        </div>
-                    </a>
+                    <?php } ?>
 
                 </div>
             </div>
             <div class='container'>
-                <div class="tab-content">
 
-                    <div class="tab-pane fade in active" id="home">...</div> <div class="tab-pane fade" id="svn">...</div>
-
-                    <div class="tab-pane fade" id="ios">...</div> <div class="tab-pane fade" id="java">...</div>
-
-                </div>
 
                 <div id='mailcontent' class='col-md-8'>
+                    <ul id='myTab' class='nav nav-tabs'>
 
-                    <form role='form' action='#' method='post'>
+
+
+                        <li onclick="" class="active" id='tabs'><a href='#form2' data-toggle='tab'>Eliminar</a></li>
+
+
+
+                    </ul>
+
+
+
+                    <form id="form2" role='form' action='#' method='post'>
                         <div class='form-group'>
 
-                            <label for='asunto' class='col-sm-2 control-label'>Asunto:</label> <div class='col-sm-10'>
+                            <label for='asunto2' class='col-sm-2 control-label'>Asunto:</label> <div class='col-sm-10'>
 
-                                <input type='text' class='form-control' id='asunto'>
+                                <input disabled name='asunto' type='text' class='form-control' id='asunto2'>
 
                             </div>
 
                         </div>
                         <div class='form-group'>
 
-                            <label for='destinatarios' class='col-sm-2 control-label'>Destinatario:</label> <div class='col-sm-10'>
+                            <label for='destinatarios2' class='col-sm-2 control-label'>Destinatario:</label> <div class='col-sm-10'>
 
-                                <input type='text' class='form-control' id='destinatarios'>
+                                <input disabled name='destinatario' type='text' class='form-control' id='destinatarios2'>
 
                             </div>
 
@@ -208,14 +200,14 @@ and open the template in the editor.
                         <div class='form-group'>
 
 
-                            <label id='lblinfo' for='name'>Informacion:</label>
+                            <label id='lblinfo2' for='info2'>Informacion:</label>
 
-                            <textarea id='info' class='form-control' rows='3'></textarea> </div>
+                            <textarea disabled name='informacion' id='info2' class='form-control' rows='3'></textarea> </div>
 
-                        <button type='button' class='btn btn-primary btn-lg '> Editar
+                        <button type='submit' class='btn btn-primary btn-lg '> Eliminar
                         </button>
-                        <button type='button' class='btn btn-primary btn-lg '> Eliminar
-                        </button>
+                        <input id='idcorreo2' type='hidden' name='id' value='' />
+
                     </form>
 
                 </div>
@@ -223,19 +215,11 @@ and open the template in the editor.
             </div>
         </div>
 
+        <script>
+            $(document).ready(function () {
 
-
-
-
-        <?php
-        // put your code here
-        ?>
+            $('#mailcontent').css('display','none');
+            });
+        </script>
     </body>
-    <script>$(document).ready(function () {
-//            $('#myTab a[href="Dash.php"]').tab('show');
-//            $('#myTab a[href="ContentTab1.php"]').tab('show');
-
-
-        }
-        );</script>
 </html>

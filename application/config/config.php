@@ -17,7 +17,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
-$config['base_url'] = '/home/jordan/Escritorio/Projects/Correos';
+$config['base_url'] = 'http://www.correos.com/';
+///
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,7 @@ $config['base_url'] = '/home/jordan/Escritorio/Projects/Correos';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -308,7 +309,7 @@ $config['cache_query_string'] = FALSE;
 | http://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'REALLY_LONG_NUMBER';
 
 /*
 |--------------------------------------------------------------------------
