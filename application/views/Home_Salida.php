@@ -142,24 +142,23 @@ and open the template in the editor.
 
         <div class="tab-pane fade in active" id="Main2">
 
-            <div class='container'>
-                <div class='col-md-4 cmail'>
+            <div id="Mails" class='container'>
 
                     <?php foreach ($result->result() as $row) {
                         
                      ?>
-                    <a class='linkmailout'> <div onclick="Events.ClickCorreo(this);" data-asunto="<?php echo $row->asunto; ?>" data-contenido="<?php echo $row->contenido ?>" data-destinatario="<?php echo $row->destinatario ?>" data-id="<?php echo $row->id; ?>" class='col-md-4 mailout'>
+                    <a class='linkmailout'> <div class='ContentMail' onclick='Events.ClickCorreo(this);' data-asunto='<?php echo $row->asunto; ?>' data-contenido='<?php echo $row->contenido ?>' data-destinatario='<?php echo $row->destinatario ?>' data-id='<?php echo $row->id; ?>' class='col-md-4 mailout'>
 
 
 
-                            <h3 class="infocorreo"><span><?php echo $correo ?></span></h3>
-                            <h4 class="infocorreo"><span><?php echo $row->asunto; ?></span></h4>
+                            <h3 class='infocorreo'><span><?php echo $correo ?></span></h3>
+                            <h4 class='infocorreo'><span><?php echo $row->asunto; ?></span></h4>
 
                         </div>
                     </a>
                     <?php } ?>
 
-                </div>
+                
             </div>
             <div class='container'>
 
@@ -177,7 +176,7 @@ and open the template in the editor.
 
                     </ul>
 
-                    <form id="form1" role='form' action='#' method='post'>
+                    <form id="form1">
                         <div class='form-group'>
 
                             <label for='asunto' class='col-sm-2 control-label'>Asunto:</label> <div class='col-sm-10'>
@@ -204,14 +203,14 @@ and open the template in the editor.
 
                             <textarea name='informacion' id='info' class='form-control' rows='3'></textarea> </div>
 
-                        <button type='submit' class='btn btn-primary btn-lg '> Editar
+                        <button type="button" onclick='Events.EditarCorreo("<?php echo base_url('salida/Edit')?>")' class='btn btn-primary btn-lg '> Editar
                         </button>
 
                         <input id='idcorreo' type='hidden' name='id' value='' />
 
                     </form>
 
-                    <form id="form2" role='form' action='#' method='post'>
+                    <form id="form2">
                         <div class='form-group'>
 
                             <label for='asunto2' class='col-sm-2 control-label'>Asunto:</label> <div class='col-sm-10'>
@@ -238,7 +237,7 @@ and open the template in the editor.
 
                             <textarea disabled name='informacion' id='info2' class='form-control disabled' rows='3'></textarea> </div>
 
-                        <button type='submit' class='btn btn-primary btn-lg '> Eliminar
+                        <button type='button' onclick='Events.EliminarCorreo("<?php echo base_url('salida/Delete')?>")' class='btn btn-primary btn-lg '> Eliminar
                         </button>
                         <input id='idcorreo2' type='hidden' name='id' value='' />
 
@@ -252,6 +251,8 @@ and open the template in the editor.
         <script>
             $(document).ready(function () {
             $('#mailcontent').css('display','none');
+            
+            setInterval(function (){Events.SelectAllUserByJson("<?php echo $correo; ?>","<?php echo $id; ?>","<?php echo base_url('correos/LoadCorreos')?>");},3000);
             });
         </script>
     </body>

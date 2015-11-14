@@ -14,10 +14,6 @@ class Users extends CI_Controller {
     }
 
     public function Confirmar() {
-        $this->load->helper(array('form'));
-
-        $this->load->library('form_validation');
-        var_dump($this->session);
         $this->load->model('DaoUsers');
         $nombre = $_POST['nombre'];
         $mail = $_POST['mail'];
@@ -27,7 +23,7 @@ class Users extends CI_Controller {
         $mensaje .= "Estos son tus datos de registro:\n";
         $mensaje .= "Usuario: $nombre.\n";
         $mensaje .= "Contraseña: $pass.\n\n";
-        $mensaje .= "Debes activar tu cuenta pulsando este enlace: " . base_url('Users/UserLink/') . $id;
+        $mensaje .= "Debes activar tu cuenta pulsando este enlace: " . base_url('Users/UserLink/'.$id);
 
         $asunto = "Activación de tu cuenta en " . base_url();
 
@@ -39,6 +35,7 @@ class Users extends CI_Controller {
 
             $this->load->view('Confirmacion', $data);
         } else {
+           
             $this->DaoUsers->EliminarUsuario($id);
             $this->load->view('ErrorSendMail', $data);
         }

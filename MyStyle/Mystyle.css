@@ -36,16 +36,16 @@ div#mailcontent.col-md-8{
     
     
 }
-a{
+a.linkmailout{
     text-decoration: none;
     color: lightslategray;
     text-align: center;
 }
 div.col-md-4.mailout{
-    padding-top: 0px;
-    border-right: 2px solid darkseagreen;
+/*    padding-top: 0px;
+   // border-right: 2px solid darkseagreen;
     width: 100%;
-    float: left;
+    float: left;*/
 }
 #lblinfo{
     padding-left: 15px;
@@ -88,8 +88,10 @@ div.col-md-4.cmail{
 li#tab2{
     margin-right: 52%;
 }
-a.linkmailout :hover{
+div#Mails.container a.linkmailout :hover{
     background: darkgrey;
+    text-decoration: blink;
+    cursor:pointer;
 }
 div.contentleft h3{
     margin-bottom: 18px;
@@ -123,5 +125,20 @@ div.container-fluid li.dropdown{
     background-color:#122b40;
 }
 .infocorreo{
- font-size: 1.5rem;   
+ font-size: 1.5rem;  
+ padding-top: 3px;
+}
+#Mails{
+    border-right: 2px solid darkseagreen;
+    width: 33.33%;
+    height: 62rem;
+    float: left;
+    overflow: scroll;
+}
+div.ContentMail{
+    width: 100%;
+    height: 5rem;
+    margin-left: 0px;
+/*    border-bottom: 1px solid #009926;
+    border-top: 1px solid #009926;*/
 }
