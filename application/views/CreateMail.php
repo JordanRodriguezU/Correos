@@ -18,12 +18,13 @@ and open the template in the editor.
         <div align="center"><?php echo validation_errors(); ?></div>
         <?php echo form_open('VerifyMail');
         ?>
-        <form id="form1" role='form'>
+        <div id="frmCrear">
+            <form id="form1" role='form'>
             <div class='form-group'>
 
                 <label for='asunto' class='col-sm-2 control-label'>Asunto:</label> <div class='col-sm-10'>
 
-                    <input name='asunto' type='text' class='form-control' id='asunto'>
+                    <input required name='asunto' type='text' class='form-control create' id='asunto'>
 
                 </div>
 
@@ -32,7 +33,7 @@ and open the template in the editor.
 
                 <label for='destinatarios' class='col-sm-2 control-label'>Destinatario:</label> <div class='col-sm-10'>
 
-                    <input name='destinatario' type='text' class='form-control' id='destinatarios'>
+                    <input required name='destinatario' type='text' class='form-control create' id='destinatarios'>
 
                 </div>
 
@@ -43,17 +44,25 @@ and open the template in the editor.
 
                 <label id='lblinfo' for='info'>Informacion:</label>
 
-                <textarea name='informacion' id='info' class='form-control' rows='3'></textarea> </div>
+                <textarea required name='informacion' id='info' class='form-control create' rows='3'></textarea> </div>
 
-            <button type='submit' class='btn btn-primary btn-lg '> Enviar
+            <button id="btncrear" type='submit' class='btn btn-primary btn-lg '> Crear
             </button>
 
             <input id='idcorreo' type='hidden' name='id' value='' />
 
         </form>
+        </div>
 
         <?php
         // put your code here
         ?>
     </body>
+    <script>
+    $(document).ready(function (){
+       $('form').submit(function (){
+          return Events.ValidarCrearMail();
+       }); 
+    });
+    </script>
 </html>

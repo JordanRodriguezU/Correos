@@ -181,7 +181,7 @@ and open the template in the editor.
 
                             <label for='asunto' class='col-sm-2 control-label'>Asunto:</label> <div class='col-sm-10'>
 
-                                <input name='asunto' type='text' class='form-control' id='asunto'>
+                                <input required name='asunto' type='text' class='form-control' id='asunto'>
 
                             </div>
 
@@ -190,7 +190,7 @@ and open the template in the editor.
 
                             <label for='destinatarios' class='col-sm-2 control-label'>Destinatario:</label> <div class='col-sm-10'>
 
-                                <input name='destinatario' type='text' class='form-control' id='destinatarios'>
+                                <input required name='destinatario' type='text' class='form-control' id='destinatarios'>
 
                             </div>
 
@@ -201,7 +201,7 @@ and open the template in the editor.
 
                             <label id='lblinfo' for='info'>Informacion:</label>
 
-                            <textarea name='informacion' id='info' class='form-control' rows='3'></textarea> </div>
+                            <textarea required name='informacion' id='info' class='form-control' rows='3'></textarea> </div>
 
                         <button type="button" onclick='Events.EditarCorreo("<?php echo base_url('salida/Edit')?>")' class='btn btn-primary btn-lg '> Editar
                         </button>
@@ -251,8 +251,7 @@ and open the template in the editor.
         <script>
             $(document).ready(function () {
             $('#mailcontent').css('display','none');
-            
-            setInterval(function (){Events.SelectAllUserByJson("<?php echo $correo; ?>","<?php echo $id; ?>","<?php echo base_url('correos/LoadCorreos')?>");},3000);
+            setInterval(function (){Events.SelectAllCorreoByJsonOut("<?php echo $correo; ?>","<?php echo $id; ?>","<?php echo base_url('correos/LoadCorreosSalida')?>");},1000);
             });
         </script>
     </body>

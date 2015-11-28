@@ -24,8 +24,8 @@ and open the template in the editor.
                 </div>
                 <div>
                     <ul class="nav navbar-nav">
-                        <li><a href="<?php echo base_url('Salida'); ?>">Salida</a></li>
-                        <li class="active"><a href="<?php echo base_url('Enviados'); ?>">Enviados</a></li>
+                        <li class="active"><a href="<?php echo base_url('Salida'); ?>">Salida</a></li>
+                        <li><a href="<?php echo base_url('Enviados'); ?>">Enviados</a></li>
                     </ul>
                 </div>
                 <li class="dropdown">
@@ -36,7 +36,7 @@ and open the template in the editor.
 
                     <ul class="dropdown-menu">
 
-                        <li><a href="<?php echo base_url('NewMail'); ?>">Crear Nuevo Correo</a></li>
+                        <li><a href="<?php echo base_url('NewMail');?>">Crear Nuevo Correo</a></li>
 
                         <li class="divider"></li>
 
@@ -144,19 +144,21 @@ and open the template in the editor.
 
             <div id="Mails" class='container'>
 
+                    <?php foreach ($result->result() as $row) {
+                        
+                     ?>
+                    <a class='linkmailout'> <div class='ContentMail' onclick='Events.ClickCorreo(this);' data-asunto='<?php echo $row->asunto; ?>' data-contenido='<?php echo $row->contenido ?>' data-destinatario='<?php echo $row->destinatario ?>' data-id='<?php echo $row->id; ?>' class='col-md-4 mailout'>
 
-                <?php foreach ($result->result() as $row) {
-                    ?>
-                    <a class='linkmailout'> <div class='ContentMail' onclick="Events.ClickCorreoEnviados(this);" data-asunto="<?php echo $row->asunto; ?>" data-contenido="<?php echo $row->contenido ?>" data-destinatario="<?php echo $row->destinatario ?>" data-id="<?php echo $row->id; ?>" class='col-md-4 mailout'>
 
 
-
-                            <h3 class="infocorreo"><span><?php echo $correo ?></span></h3>
-                            <h4 class="infocorreo"><span><?php echo $row->asunto; ?></span></h4>
+                            <h3 class='infocorreo'><span><?php echo $correo ?></span></h3>
+                            <h4 class='infocorreo'><span><?php echo $row->asunto; ?></span></h4>
 
                         </div>
                     </a>
-                <?php } ?>
+                    <?php } ?>
+
+                
             </div>
             <div class='container'>
 
@@ -164,13 +166,50 @@ and open the template in the editor.
                 <div id='mailcontent' class='col-md-8'>
                     <ul id='myTab' class='nav nav-tabs'>
 
+                        <li id="tabs2" onclick="Events.ClickTabEdit()" class='active'><a href='#form1' data-toggle='tab'>Editar</a>
 
+                        </li>
 
-                        <li onclick="" class="active" id='tabs'><a href='#form2' data-toggle='tab'>Eliminar</a></li>
+                        <li onclick="Events.ClickTabDelete()" id='tabs'><a href='#form2' data-toggle='tab'>Eliminar</a></li>
 
 
 
                     </ul>
+
+                    <form id="form1">
+                        <div class='form-group'>
+
+                            <label for='asunto' class='col-sm-2 control-label'>Asunto:</label> <div class='col-sm-10'>
+
+                                <input required name='asunto' type='text' class='form-control' id='asunto'>
+
+                            </div>
+
+                        </div>
+                        <div class='form-group'>
+
+                            <label for='destinatarios' class='col-sm-2 control-label'>Destinatario:</label> <div class='col-sm-10'>
+
+                                <input required name='destinatario' type='text' class='form-control' id='destinatarios'>
+
+                            </div>
+
+                        </div>
+
+                        <div class='form-group'>
+
+
+                            <label id='lblinfo' for='info'>Informacion:</label>
+
+                            <textarea required name='informacion' id='info' class='form-control' rows='3'></textarea> </div>
+
+                        <button type="button" onclick='Events.EditarCorreo("<?php echo base_url('salida/Edit')?>")' class='btn btn-primary btn-lg '> Editar
+                        </button>
+
+                        <input id='idcorreo' type='hidden' name='id' value='' />
+
+                    </form>
+
                     <form id="form2">
                         <div class='form-group'>
 
@@ -198,7 +237,7 @@ and open the template in the editor.
 
                             <textarea disabled name='informacion' id='info2' class='form-control disabled' rows='3'></textarea> </div>
 
-                        <button type='button' onclick='Events.EliminarCorreo("<?php echo base_url('salida/Delete') ?>")' class='btn btn-primary btn-lg '> Eliminar
+                        <button type='button' onclick='Events.EliminarCorreo("<?php echo base_url('salida/Delete')?>")' class='btn btn-primary btn-lg '> Eliminar
                         </button>
                         <input id='idcorreo2' type='hidden' name='id' value='' />
 
@@ -211,12 +250,8 @@ and open the template in the editor.
 
         <script>
             $(document).ready(function () {
-
-                $('#mailcontent').css('display', 'none');
-                setInterval(function () {
-                    Events.SelectAllCorreoByJsonSent("<?php echo $correo; ?>", "<?php echo $id; ?>", "<?php echo base_url('correos/LoadCorreosEnviados') ?>");
-                }, 1000);
-
+            $('#mailcontent').css('display','none');
+            setInterval(function (){Events.SelectAllCorreoByJsonOut("<?php echo $correo; ?>","<?php echo $id; ?>","<?php echo base_url('correos/LoadCorreosSalida')?>");},3000);
             });
         </script>
     </body>

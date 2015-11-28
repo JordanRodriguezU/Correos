@@ -142,3 +142,18 @@ div.ContentMail{
 /*    border-bottom: 1px solid #009926;
     border-top: 1px solid #009926;*/
 }
+#frmCrear{
+    margin-top: 12rem;
+}
+input#asunto.form-control.create{
+    width: 97%;
+}
+input#destinatarios.form-control.create{
+    width: 97%;
+}
+textarea#info.form-control.create{
+    width: 97%;
+}
+#btncrear{
+    margin-left: 1.3rem;
+}

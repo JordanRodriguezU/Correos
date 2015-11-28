@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 <meta charset="utf-8">
 <title>Error Email</title>
-<meta http-equiv="refresh" content="8;URL=<?php echo base_url() ?>/Users" />
+<meta http-equiv="refresh" content="8;URL=<?php echo base_url() ?>Users" />
 <style type="text/css">
 
 ::selection { background-color: #E13300; color: white; }

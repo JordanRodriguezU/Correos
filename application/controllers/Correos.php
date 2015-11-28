@@ -15,12 +15,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Correos extends CI_Controller {
 
     //put your code here
-    public function LoadCorreos() {
+    public function LoadCorreosSalida() {
         $id = $this->input->post('id');
         $this->load->model('DaoMails');
         $result = $this->DaoMails->GetAllOut_ByIdUser($id);
-        header('Content-Type: application/json');
-        echo json_encode(array('Result'=>$result->result_array()));
+        if ($result->num_rows() > 0) {
+            header('Content-Type: application/json');
+            echo json_encode(array('Result' => $result->result_array()));
+        } else {
+            header('Content-Type: application/json');
+            echo json_encode(array('Result' => "No Results"));
+        }
+    }
+
+    public function LoadCorreosEnviados() {
+        $id = $this->input->post('id');
+        $this->load->model('DaoMails');
+        $result = $this->DaoMails->GetAllSent_ByIdUser($id);
+        if ($result->num_rows()> 0) {
+            header('Content-Type: application/json');
+            echo json_encode(array('Result' => $result->result_array()));
+        } else {
+            header('Content-Type: application/json');
+            echo json_encode(array('Result' => "No Results"));
+        }
     }
 
 }

@@ -25,6 +25,7 @@ class Enviados extends CI_Controller {
             $this->load->model('DaoMails');
             $result=  $this->DaoMails->GetAllSent_ByIdUser($session_data['id']);
             $data['result']=$result;
+            $data['id']=$session_data['id'];
             $this->load->view('Home_Enviados',$data);
         }else{
             redirect('login','refresh');
