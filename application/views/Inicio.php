@@ -10,9 +10,12 @@ and open the template in the editor.
         <title>login</title>
         <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link type="text/css" rel="stylesheet" href="<?php echo base_url('MyStyle/Mystyle.css') ?>">
-        <script type="text/javascript" src="<?php echo base_url('MyJs/MyJavascript.js') ?>"></script>
-         <script type="text/javascript" src="<?php echo base_url('Bootstrap/css/bootstrap.css') ?>"></script>
+        <link type="text/css" rel="stylesheet" href="<?php echo base_url('Bootstrap/css/bootstrap.css') ?>">
 
+        <script type="text/javascript" src="<?php echo base_url('MyJs/MyJavascript.js') ?>"></script>
+         <script type="text/javascript" src="<?php echo base_url('Jquery/jquery-2.1.4.min.js') ?>"></script>
+
+ 
     </head>
     <body>
         <div align="center"><?php echo validation_errors();?></div>
@@ -70,7 +73,7 @@ and open the template in the editor.
 ?>
 <script>
     $(document).ready(function () {
-        debugger;
+        //debugger;
         if ($('#Error').length > 0) {
             alert($('#Error').val());
         }

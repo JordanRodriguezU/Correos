@@ -40,7 +40,7 @@ and open the template in the editor.
 
                         <li class="divider"></li>
 
-                        <li><a href="#">Salir</a></li> </ul>
+                        <li><a href="<?php echo base_url('Salida/logout');?>">Salir</a></li> </ul>
 
                 </li>
             </div>

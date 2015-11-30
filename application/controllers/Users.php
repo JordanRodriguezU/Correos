@@ -23,7 +23,7 @@ class Users extends CI_Controller {
         $mensaje .= "Estos son tus datos de registro:\n";
         $mensaje .= "Usuario: $nombre.\n";
         $mensaje .= "Contraseña: $pass.\n\n";
-        $mensaje .= "Debes activar tu cuenta pulsando este enlace: " . base_url('Users/UserLink/'.$id);
+        $mensaje .= "Debes activar tu cuenta pulsando este enlace: " . base_url('Users/UserLink/' . $id);
 
         $asunto = "Activación de tu cuenta en " . base_url();
 
@@ -35,9 +35,24 @@ class Users extends CI_Controller {
 
             $this->load->view('Confirmacion', $data);
         } else {
-           
+
             $this->DaoUsers->EliminarUsuario($id);
             $this->load->view('ErrorSendMail', $data);
+        }
+    }
+
+    public function VerifyUser() {
+        $usuario = $this->input->post('nombre');
+        $this->load->model('DaoUsers');
+        $result = $this->DaoUsers->GetByNuser($usuario);
+        if ($result->num_rows() > 0) {
+            header('Content-Type: application/json');
+            echo json_encode(array('Result' => "User Already"));
+            
+        } else {
+            header('Content-Type: application/json');
+            echo json_encode(array('Result' => "User valid"));
+            
         }
     }
 

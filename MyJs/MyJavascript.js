@@ -29,28 +29,84 @@ var Events = {
 //        });
 
     },
-    //Valida los Campos a La hora de Editar Un Mail
-    ValidarMail: function () {
+    onkeyUpNameUser:function (){
+        //debugger;
+        $('#btnNewUser').removeAttr("disabled");
+    },
+    ValidarForm: function () {
+        //debugger;
+
         var mail = $('#correo').val();
         // debugger;
         var patron = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
         if ($('#nombre').val() === "") {
-            $('#nombre').css("color", "red");
+            alert("El Campo del Nombre de Usuario esta Vacio!");
             return false;
+        } else {
+            if (mail.search(patron) !== 0)
+            {
+                //Mail correcto
+                // object.style.color = "#000";
+                alert("Correo Invalido!, Por favor Digita una direccion de Correo Valida");
+                return false;
+            } else {
+                if ($('#pass').val() === "") {
+                    alert("El campo de la Contraseña esta Vacio!");
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
         }
-        if (mail.search(patron) !== 0)
-        {
-            //Mail correcto
-            // object.style.color = "#000";
-            $('#correo').css("color", "red");
-            return false;
-        }
-        if ($('#pass').val() === "") {
-            $('#pass').css("color", "red");
-            return false;
-        }
-        return true;
 
+
+
+    },
+    OnBlur: function (url) {
+        debugger;
+        var user = $('#nombre').val();
+        if (user === "")
+        {
+            alert("Este campo No Puede Estar Vacio");
+
+        } else {
+            $('#btnNewUser').attr("disabled", "disabled");
+            $('#spinner').show();
+
+
+            var request = $.ajax({
+                url: url,
+                method: "POST",
+                data: {"nombre": user}
+            });
+
+            request.done(function (msg) {
+                debugger;
+                if (msg.Result === "User Already") {
+                    alert("El Usuario ya Existe");
+                    $('#spinner').hide();
+                    return false;
+                } else {
+                    $('#btnNewUser').removeAttr("disabled");
+                    $('#spinner').hide();
+                    return true;
+                }
+
+            });
+        }
+    },
+    //Valida los Campos a La hora de Editar Un Mail
+    ValidarNewUser: function () {
+
+        if (!Events.ValidarForm()) {
+            return false;
+        }
+        else {
+
+            return true;
+
+        }
     },
     ClickCorreo: function (element) {
         $('#mailcontent').css('display', 'block');
@@ -77,7 +133,7 @@ var Events = {
     ClickCorreoEnviados: function (element) {
         //debugger;
         $('#mailcontent').css('display', 'block');
-         //$("#form2").css("display", "block");
+        //$("#form2").css("display", "block");
         $('#asunto2').val($(element).data('asunto'));
         $('#destinatarios2').val($(element).data('destinatario'));
         $('#info2').val($(element).data('contenido'));
@@ -91,11 +147,11 @@ var Events = {
             data: {"id": id}
         });
         request.done(function (msg) {
-             //debugger;
+            //debugger;
             $('#Mails').html("");
             if (msg.Result !== "No Results")
             {
-                
+
                 for (var i in msg.Result) {
                     var correo = msg.Result[i];
                     $('#Mails').append("<a class='linkmailout'> <div class='ContentMail' onclick='Events.ClickCorreo(this);'" +
@@ -103,7 +159,7 @@ var Events = {
                             "<h3 class='infocorreo'><span>" + Correo + "</span></h3><h4 class='infocorreo'><span>" + correo.asunto + "</span></h4></div></a>");
                 }
             } else {
-                
+
                 $('#mailcontent').css('display', 'none');
 
             }
@@ -165,17 +221,17 @@ var Events = {
         });
         request.done(function (msg) {
             $('#Mails').html("");
-             if (msg.Result !== "No Results"){
-            
-            for (var i in msg.Result) {
-                var correo = msg.Result[i];
-                $('#Mails').append("<a class='linkmailout'> <div class='ContentMail' onclick='Events.ClickCorreoEnviados(this);'" +
-                        "data-asunto='" + correo.asunto + "' data-contenido='" + correo.contenido + "' data-destinatario='" + correo.destinatario + "' data-id='" + correo.id + "' class='col-md-4 mailout'>" +
-                        "<h3 class='infocorreo'><span>" + Correo + "</span></h3><h4 class='infocorreo'><span>" + correo.asunto + "</span></h4></div></a>");
+            if (msg.Result !== "No Results") {
+
+                for (var i in msg.Result) {
+                    var correo = msg.Result[i];
+                    $('#Mails').append("<a class='linkmailout'> <div class='ContentMail' onclick='Events.ClickCorreoEnviados(this);'" +
+                            "data-asunto='" + correo.asunto + "' data-contenido='" + correo.contenido + "' data-destinatario='" + correo.destinatario + "' data-id='" + correo.id + "' class='col-md-4 mailout'>" +
+                            "<h3 class='infocorreo'><span>" + Correo + "</span></h3><h4 class='infocorreo'><span>" + correo.asunto + "</span></h4></div></a>");
+                }
+            } else {
+                $('#mailcontent').css('display', 'none');
             }
-        }else{
-            $('#mailcontent').css('display', 'none');
-        }
         });
     },
     ValidarEditarMail: function () {

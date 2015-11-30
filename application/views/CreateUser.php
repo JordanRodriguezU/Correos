@@ -18,12 +18,12 @@ and open the template in the editor.
     </head>
     <body>
       
-        <form method="post" action="Users/Confirmar" onsubmit="return Events.ValidarMail()" style="margin-top: 15%" class="form-horizontal" role="form"> 
+        <form method="post" action="Users/Confirmar" onsubmit="return Events.ValidarNewUser()" style="margin-top: 15%" class="form-horizontal" role="form"> 
             <div class="form-group">
 
-                <label for="nombre" class="col-sm-2 control-label labelusers">Nombre</label> <div class="col-sm-10">
+                <label for="nombre" class="col-sm-2 control-label labelusers">Usuario</label> <div class="col-sm-10">
 
-                    <input name="nombre" required type="text" class="form-control enterUsers" id="nombre" placeholder="Introduzca Su Nombre">
+                    <input onkeyup="Events.onkeyUpNameUser();" onblur="Events.OnBlur('<?php echo base_url('Users/VerifyUser'); ?>')" name="nombre" required type="text" class="form-control enterUsers" id="nombre" placeholder="Introduzca Su Nombre">
 
                 </div>
 
@@ -52,12 +52,17 @@ and open the template in the editor.
 
                 <div class="col-sm-offset-2 col-sm-10">
 
-                    <button type="submit" class="btn btn-default">Crear Usuario</button> </div>
+                    <button id="btnNewUser" type="submit" class="btn btn-default">Crear Usuario</button><img id="spinner" src="<?php echo base_url('MyStyle/giphy.gif') ?>"> </div>
             </div>
 
         </form>
         <?php
         // put your code here
         ?>
+        <script>
+        $(document).ready(function (){
+           $('#spinner').hide(); 
+        });
+        </script>
     </body>
 </html>

@@ -3,27 +3,26 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/opt/lampp/htdocs/Correos/application/controllers/Salida.php</file>
-            <file>file:/opt/lampp/htdocs/Correos/MyStyle/Mystyle.css</file>
-            <file>file:/opt/lampp/htdocs/Correos/application/views/ErrorSendMail.php</file>
-            <file>file:/opt/lampp/htdocs/Correos/application/views/Home_Enviados.php</file>
-            <file>file:/opt/lampp/htdocs/Correos/application/controllers/Users.php</file>
-            <file>file:/opt/lampp/htdocs/Correos/application/config/autoload.php</file>
-            <file>file:/opt/lampp/htdocs/Correos/application/controllers/Login.php</file>
-            <file>file:/opt/lampp/htdocs/Correos/application/controllers/Enviados.php</file>
-            <file>file:/opt/lampp/htdocs/Correos/application/models/DaoMails.php</file>
-            <file>file:/opt/lampp/htdocs/Correos/application/views/CreateUser.php</file>
-            <file>file:/opt/lampp/htdocs/Correos/application/controllers/NewMail.php</file>
-            <file>file:/opt/lampp/htdocs/Correos/application/views/Confirmacion.php</file>
-            <file>file:/opt/lampp/htdocs/Correos/application/controllers/Correos.php</file>
-            <file>file:/opt/lampp/htdocs/Correos/application/models/DaoUsers.php</file>
-            <file>file:/opt/lampp/htdocs/Correos/application/controllers/VerifyLogin.php</file>
-            <file>file:/opt/lampp/htdocs/Correos/index.php</file>
-            <file>file:/opt/lampp/htdocs/Correos/application/views/Home_Salida.php</file>
-            <file>file:/opt/lampp/htdocs/Correos/MyJs/MyJavascript.js</file>
-            <file>file:/opt/lampp/htdocs/Correos/application/views/CreateMail.php</file>
-            <file>file:/opt/lampp/htdocs/Correos/application/controllers/VerifyMail.php</file>
-            <file>file:/opt/lampp/htdocs/Correos/application/config/config.php</file>
+            <file>file:/home/jordan/Escritorio/Projects/Correos/application/config/config.php</file>
+            <file>file:/home/jordan/Escritorio/Projects/Correos/.htaccess</file>
+            <file>file:/home/jordan/Escritorio/Projects/Correos/application/controllers/Users.php</file>
+            <file>file:/home/jordan/Escritorio/Projects/Correos/application/models/DaoUsers.php</file>
+            <file>file:/home/jordan/Escritorio/Projects/Correos/application/config/routes.php</file>
+            <file>file:/home/jordan/Escritorio/Projects/Correos/application/controllers/VerifyMail.php</file>
+            <file>file:/home/jordan/Escritorio/Projects/Correos/application/controllers/VerifyLogin.php</file>
+            <file>file:/home/jordan/Escritorio/Projects/Correos/application/controllers/Enviados.php</file>
+            <file>file:/home/jordan/Escritorio/Projects/Correos/MyStyle/Mystyle.css</file>
+            <file>file:/home/jordan/Escritorio/Projects/Correos/application/views/Inicio.php</file>
+            <file>file:/home/jordan/Escritorio/Projects/Correos/MyJs/MyJavascript.js</file>
+            <file>file:/home/jordan/Escritorio/Projects/Correos/application/.htaccess</file>
+            <file>file:/home/jordan/Escritorio/Projects/Correos/application/controllers/Correos.php</file>
+            <file>file:/home/jordan/Escritorio/Projects/Correos/application/controllers/Salida.php</file>
+            <file>file:/home/jordan/Escritorio/Projects/Correos/application/views/CreateUser.php</file>
+            <file>file:/home/jordan/Escritorio/Projects/Correos/application/controllers/Login.php</file>
+            <file>file:/home/jordan/Escritorio/Projects/Correos/application/controllers/NewMail.php</file>
+            <file>file:/home/jordan/Escritorio/Projects/Correos/application/views/Home_Salida.php</file>
+            <file>file:/home/jordan/Escritorio/Projects/Correos/application/models/DaoMails.php</file>
+            <file>file:/home/jordan/Escritorio/Projects/Correos/application/views/Home_Enviados.php</file>
         </group>
     </open-files>
 </project-private>

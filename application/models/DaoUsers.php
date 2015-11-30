@@ -44,20 +44,28 @@ class DaoUsers extends CI_Model {
             var_dump($value);
         }
     }
-    public function Login($user,$pass) {
+
+    public function Login($user, $pass) {
         $this->db->select("id,nombre,correo");
         $this->db->from("usuarios");
-        $this->db->where("nombre",$user);
-        $this->db->where("pass",$pass);
-        $this->db->where("estado","confirmado");
+        $this->db->where("nombre", $user);
+        $this->db->where("pass", $pass);
+        $this->db->where("estado", "confirmado");
 
         $this->db->limit(1);
-        $query=  $this->db->get();
-        if ($query->num_rows()==1) {
+        $query = $this->db->get();
+        if ($query->num_rows() == 1) {
             return $query->result();
-        }  else {
-            return false;    
+        } else {
+            return false;
         }
+    }
+
+    public function GetByNuser($nameuser) {
+        $this->db->where('nombre', $nameuser);
+        $this->db->from('usuarios');
+        $result = $this->db->get();
+        return $result;
     }
 
 }

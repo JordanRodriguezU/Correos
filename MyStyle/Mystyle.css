@@ -30,11 +30,11 @@ div#content.row{
 }
 div#mailcontent.col-md-8{
     border: 0px;
-   // padding-left: 7px;
-   // border-left: 8px solid lightslategray;
-   float: right;
-    
-    
+    // padding-left: 7px;
+    // border-left: 8px solid lightslategray;
+    float: right;
+
+
 }
 a.linkmailout{
     text-decoration: none;
@@ -42,10 +42,10 @@ a.linkmailout{
     text-align: center;
 }
 div.col-md-4.mailout{
-/*    padding-top: 0px;
-   // border-right: 2px solid darkseagreen;
-    width: 100%;
-    float: left;*/
+    /*    padding-top: 0px;
+       // border-right: 2px solid darkseagreen;
+        width: 100%;
+        float: left;*/
 }
 #lblinfo{
     padding-left: 15px;
@@ -125,8 +125,8 @@ div.container-fluid li.dropdown{
     background-color:#122b40;
 }
 .infocorreo{
- font-size: 1.5rem;  
- padding-top: 3px;
+    font-size: 1.5rem;  
+    padding-top: 3px;
 }
 #Mails{
     border-right: 2px solid darkseagreen;
@@ -139,8 +139,8 @@ div.ContentMail{
     width: 100%;
     height: 5rem;
     margin-left: 0px;
-/*    border-bottom: 1px solid #009926;
-    border-top: 1px solid #009926;*/
+    /*    border-bottom: 1px solid #009926;
+        border-top: 1px solid #009926;*/
 }
 #frmCrear{
     margin-top: 12rem;
@@ -156,4 +156,9 @@ textarea#info.form-control.create{
 }
 #btncrear{
     margin-left: 1.3rem;
+}
+#spinner{
+    width: 10%;
+    height: 47px;
+    margin-left: 17px;
 }
